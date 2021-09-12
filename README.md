@@ -1,0 +1,1 @@
+This is a simple 2048 game using the PyGame module. Run the 2048.py file.
