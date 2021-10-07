@@ -1,6 +1,7 @@
 import numpy as np
 import random
 import pygame
+import time
 from pygame.constants import *
 const = {
     'back': (189, 172, 161),

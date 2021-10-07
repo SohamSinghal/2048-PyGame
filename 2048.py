@@ -7,7 +7,6 @@ class Game:
         self.height = 600
         pygame.init() #Inititalize the window for pygame
         pygame.display.set_caption("PyGame 2048") 
-        self.myfont = pygame.font.SysFont('Arial',40) 
         self.screen = pygame.display.set_mode((self.width, self.height))
     def InsertRandom(self,k = 1): #Insert one random number in the grid
         empty_pos = list(zip(*np.where(self.grid == 0))) #creates a list of (row,col) for empty spaces
@@ -109,7 +108,13 @@ class Game:
             self.update(user_input)
             self.InsertRandom()
             if self.GameOver():
-                print("GOOD BYE!")
-                break 
+                font = pygame.font.SysFont("Arial",100)                
+                text = "GAME OVER!"
+                game_over_text = font.render(text,True,(0,0,0))
+                self.screen.fill(const['back'])
+                self.screen.blit(game_over_text,((self.width - game_over_text.get_width())/2,(self.height - game_over_text.get_height())/2))
+                pygame.display.flip()
+                time.sleep(5)
+                break
 game = Game() #Default value of grid is 4x4 
 game.play()
